@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Přehled řidičů</title>
+    <link th:href="@{/main.css}" rel="stylesheet">
+</head>
+<body>
+
+<div th:switch="${ridicList}">
+    <h2 th:case="null">No ridic yet!</h2>
+    <div th:case="*">
+        <h2>Řidiči</h2>
+        <div class="navi" th:replace="fragments/navigace ::navbar"></div>
+        <table>
+            <thead>
+            <tr>
+                <th>Jmeno</th>
+                <th>Prijmeni</th>
+                <th>Detaily</th>
+                <th>Upravit</th>
+                <th>Smazat</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="ridic : ${ridicList}">
+                <td th:text="${ridic.jmeno}"></td>
+                <td th:text="${ridic.prijmeni}"></td>
+                <td><a th:href="@{/ridic-detaily/{id}(id=${ridic.id})}">Detaily</a></td>
+                <td><a th:href="@{/edit/{id}(id=${ridic.id})}">Upravit</a></td>
+                <td><a th:href="@{/delete/{id}(id=${ridic.id})}">Smazat</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <h3><a href="/pridaniRidiceForm">Přidat nového řidiče</a></h3>
+</div>
+
+</body>
+</html>

@@ -30,19 +30,16 @@ class saveTest {
         void pridatRidiceTest() {
 
             Ridic ridic = new Ridic();
-            ridic.setId(Long.valueOf("2"));
-            ridic.setJmeno("Josef");
-            ridic.setPrijmeni("Skocdopole");
-            ridic.setTelefonniCislo(Integer.valueOf("777666777"));
+            ridic.setJmeno("Tomas");
+            ridic.setPrijmeni("Jedno");
+            ridic.setTelefonniCislo(Integer.valueOf("782666711"));
             ridicRepository.save(ridic);
 
             StavRidice stavRidice = new StavRidice();
-            stavRidice.setId(1L);
             stavRidice.setState(StateEnum.AKTIVNI);
             stavRidiceRepository.save(stavRidice);
 
             Pokuta pokuta = new Pokuta();
-            pokuta.setId(1L);
             pokuta.setCastka(2000);
             pokuta.setNazevPokuty("Rychlost");
             pokutaRepository.save(pokuta);

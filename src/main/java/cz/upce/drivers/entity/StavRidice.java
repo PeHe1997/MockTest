@@ -8,19 +8,20 @@ public class StavRidice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
 
     @Enumerated(EnumType.STRING)
     @Column(length = 15)
     private StateEnum state;
 
+    @OneToMany(mappedBy = "id")
     private Set<PrehledRidicu> stavVPrehledu;
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    @Id
     public Long getId() {
         return id;
     }

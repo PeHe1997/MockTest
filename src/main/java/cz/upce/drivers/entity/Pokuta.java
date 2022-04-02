@@ -8,22 +8,20 @@ public class Pokuta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
 
-    @Column()
+    @Column
     private String nazevPokuty;
-    @Column()
+    @Column
     private Integer castka;
 
-    private Set<PrehledRidicu> pokutyVPrehledu;
+    public Long getId() {
+        return id;
+    }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    @Id
-    public Long getId() {
-        return id;
     }
 
     public String getNazevPokuty() {
@@ -32,15 +30,6 @@ public class Pokuta {
 
     public void setNazevPokuty(String nazevPokuty) {
         this.nazevPokuty = nazevPokuty;
-    }
-
-    @OneToMany(mappedBy = "id")
-    public Set<PrehledRidicu> getPokutyVPrehledu() {
-        return pokutyVPrehledu;
-    }
-
-    public void setPokutyVPrehledu(Set<PrehledRidicu> pokutyVPrehledu) {
-        this.pokutyVPrehledu = pokutyVPrehledu;
     }
 
     public Integer getCastka() {

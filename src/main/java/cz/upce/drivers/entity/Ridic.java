@@ -8,28 +8,25 @@ public class Ridic {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
 
-    @Column()
+    @Column
     private String jmeno;
 
-    @Column()
+    @Column
     private String prijmeni;
 
-    @Column()
+    @Column
     private Integer telefonniCislo;
 
-
+    @OneToMany(mappedBy = "id")
     private Set<PrehledRidicu> ridiciVPrehledu;
-
-    public Ridic() {
-    }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    @Id
     public Long getId() {
         return id;
     }
@@ -58,7 +55,6 @@ public class Ridic {
         this.telefonniCislo = telefonniCislo;
     }
 
-    @OneToMany(mappedBy = "id")
     public Set<PrehledRidicu> getRidiciVPrehledu() {
         return ridiciVPrehledu;
     }

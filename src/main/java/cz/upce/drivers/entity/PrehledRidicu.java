@@ -7,6 +7,7 @@ public class PrehledRidicu {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
 
     @ManyToOne

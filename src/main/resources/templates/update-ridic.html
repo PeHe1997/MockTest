@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Úprava řidiče</title>
+    <link th:href="@{/main.css}" rel="stylesheet">
+</head>
+<body>
+<h2>Úprava řidiče</h2>
+<div class="navi" th:replace="fragments/navigace ::navbar"></div>
+<form action="#"
+      th:action="@{/update/{id} (id=${ridic.id})}"
+      th:object="${ridic}"
+      method="post">
+    <label for="jmeno">Jméno: </label>
+    <input type="text" th:field="*{jmeno}" id="jmeno" placeholder="Jmeno">
+    <span th:if="${#fields.hasErrors('jmeno')}" th:errors="*{jmeno}"></span>
+    <label for="prijmeni">Příjmení: </label>
+    <input type="text" th:field="*{prijmeni}" id="prijmeni" placeholder="Prijmeni">
+    <span th:if="${#fields.hasErrors('prijmeni')}" th:errors="*{prijmeni}"></span>
+    <label for="telefonniCislo">Telefonní číslo: </label>
+    <input type="text" th:field="*{telefonniCislo}" id="telefonniCislo" placeholder="Telefonni cislo">
+    <span th:if="${#fields.hasErrors('telefonniCislo')}" th:errors="*{telefonniCislo}"></span>
+    <input type="submit" value="Add Ridic">
+</form>
+</body>
+</html>

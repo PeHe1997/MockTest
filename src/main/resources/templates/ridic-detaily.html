@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/main.css}" rel="stylesheet">
+</head>
+<body>
+<div>
+    <h2>Detaily řidiče</h2>
+    <div class="navi" th:replace="fragments/navigace ::navbar"></div>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Jmeno</th>
+            <th>Prijmeni</th>
+            <th>Telefonní číslo</th>
+        </tr>
+        </thead>
+        <tbody>
+            <td th:text="${ridic.id}"></td>
+            <td th:text="${ridic.jmeno}"></td>
+            <td th:text="${ridic.prijmeni}"></td>
+            <td th:text="${ridic.telefonniCislo}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
